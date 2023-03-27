@@ -7,7 +7,7 @@ route = input('Url del servicio a ejecutar: ')
 time_to_sleep = float(input('Tiempo de espera entre cada petición: '))
 num_of_cores = int(input('Cantidad de hilos de ejcución: '))
 
-def req_countries(route,time_to_sleep,number_of_thread):
+def make_request(route,time_to_sleep,number_of_thread):
     i = 1
     while(True):
         print('Procesando peticion: ', i, ' en hilo nº', number_of_thread)
@@ -19,7 +19,7 @@ def req_countries(route,time_to_sleep,number_of_thread):
 threads = []
 #Creando hilos de ejecución
 for i in range(num_of_cores):
-    threads.append(threading.Thread(target=req_countries, args=(route,time_to_sleep,str(i+1))))
+    threads.append(threading.Thread(target=make_request, args=(route,time_to_sleep,str(i+1))))
 
 
 #Iniciando hilos de ejecución
